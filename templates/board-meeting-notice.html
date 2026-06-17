@@ -1,347 +1,52 @@
-<!DOCTYPE html>
+<section class="template">
 
-<html lang="en">
+<div class="doc-title">
 
-<head>
+BOARD MEETING NOTICE
 
-<meta charset="UTF-8">
+</div>
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
 
-<meta
-name="theme-color"
-content="#111111"
->
 
-<title>
+<div class="doc-meta">
 
-VIDHWAAN Corporate Document System
+<div>
 
-</title>
+<b>Document No :</b>
 
+BMN-2026-001
 
+</div>
 
-<!-- FONTS -->
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+<div>
 
-<link
+<b>Version :</b>
 
-href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+1.0
 
-rel="stylesheet"
+</div>
 
->
 
 
+<div>
 
-<!-- PDF -->
+<b>Status :</b>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+FINAL
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 
+<div>
 
-<link
+<b>Date :</b>
 
-rel="stylesheet"
+17 June 2026
 
-href="main.css"
-
->
-
-</head>
-
-<body>
-
-
-
-
-
-<!-- SCREEN TOOLBAR -->
-
-<div class="toolbar">
-
-
-
-<div class="toolbar-left">
-
-
-<button id="newBtn">
-
-New
-
-</button>
-
-
-
-
-
-<select id="templateSelect">
-
-
-<option value="">
-
-Select Template
-
-</option>
-
-
-
-
-
-<optgroup label="Board">
-
-
-
-<option value="board-meeting-notice">
-
-Board Meeting Notice
-
-</option>
-
-
-
-
-<option value="minutes-of-meeting">
-
-Minutes of Meeting
-
-</option>
-
-
-
-
-
-<option value="board-resolution">
-
-Board Resolution
-
-</option>
-
-
-
-
-
-<option value="attendance-sheet">
-
-Attendance Sheet
-
-</option>
-
-
-
-
-
-<option value="consent-shorter-notice">
-
-Consent for Shorter Notice
-
-</option>
-
-
-
-</optgroup>
-
-
-
-
-
-
-<optgroup label="Directors">
-
-
-
-<option value="mbp1">
-
-MBP-1
-
-</option>
-
-
-
-
-
-<option value="dir8">
-
-DIR-8
-
-</option>
-
-
-
-
-
-<option value="register-directors">
-
-Register of Directors
-
-</option>
-
-
-
-</optgroup>
-
-
-
-
-
-
-
-<optgroup label="Shares">
-
-
-
-<option value="register-members">
-
-Register of Members
-
-</option>
-
-
-
-
-
-<option value="share-certificate">
-
-Share Certificate
-
-</option>
-
-
-
-</optgroup>
-
-
-
-
-
-
-
-
-<optgroup label="ROC">
-
-
-
-<option value="auditor-appointment">
-
-Auditor Appointment
-
-</option>
-
-
-
-
-
-<option value="inc20a">
-
-INC-20A
-
-</option>
-
-
-
-</optgroup>
-
-
-
-
-
-
-
-
-<optgroup label="Tax">
-
-
-
-<option value="gst">
-
-GST
-
-</option>
-
-
-
-
-
-<option value="professional-tax">
-
-Professional Tax
-
-</option>
-
-
-
-</optgroup>
-
-
-
-
-
-
-
-
-<optgroup label="Corporate">
-
-
-
-<option value="invoice">
-
-Invoice
-
-</option>
-
-
-
-
-
-<option value="offer-letter">
-
-Offer Letter
-
-</option>
-
-
-
-
-
-<option value="agreement">
-
-Agreement
-
-</option>
-
-
-
-
-
-<option value="company-profile">
-
-Company Profile
-
-</option>
-
-
-
-</optgroup>
-
-
-
-</select>
-
-
-
+</div>
 
 </div>
 
@@ -350,276 +55,26 @@ Company Profile
 
 
 
-<div class="toolbar-right">
+<p>
 
+To,
 
+</p>
 
-<button id="printBtn">
 
-Print
 
-</button>
+<p>
 
+Mr. NITHIN GIDIGI
 
+<br>
 
+Director
 
-
-<button id="pdfBtn">
-
-Download PDF
-
-</button>
-
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- PAPER -->
-
-
-<div class="paper"
-
-id="paper"
-
->
-
-
-
-
-<!-- WATERMARK -->
-
-
-<div class="watermark">
-
-
-<img
-
-src="logo.png"
-
-alt="VIDHWAAN"
-
->
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- LETTERHEAD -->
-
-
-<header class="letterhead">
-
-
-
-
-<div class="logo-box">
-
-
-<img
-
-src="logo.png"
-
-class="logo"
-
-alt="VIDHWAAN"
-
->
-
-
-</div>
-
-
-
-
-
-
-
-<div class="company-box">
-
-
-
-<div class="brand">
-
-VIDHWAAN
-
-</div>
-
-
-
-
-
-<div class="company-name">
+<br>
 
 GIDIGI TECHNOLOGIES PRIVATE LIMITED
 
-</div>
-
-
-
-
-
-
-<div class="tagline">
-
-BUILDING THE FUTURE WITH TECHNOLOGY
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="meta-box">
-
-
-
-<div class="meta-row">
-
-<div>
-
-CIN
-
-</div>
-
-<div>
-
-U62099AP2026PTC126392
-
-</div>
-
-</div>
-
-
-
-
-
-
-<div class="meta-row">
-
-<div>
-
-PAN
-
-</div>
-
-<div>
-
-AANCG1335J
-
-</div>
-
-</div>
-
-
-
-
-
-
-<div class="meta-row">
-
-<div>
-
-GST
-
-</div>
-
-<div>
-
-Applied
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-</header>
-
-
-
-
-
-
-
-
-<div class="gold-line"></div>
-
-
-
-
-
-
-
-
-<!-- DOCUMENT -->
-
-
-
-<div
-
-id="document-container"
-
->
-
-
-
-
-
-<div class="welcome">
-
-
-
-<h1>
-
-VIDHWAAN
-
-</h1>
-
-
-
-
-
-<p>
-
-Corporate Document System
-
 </p>
 
 
@@ -629,105 +84,405 @@ Corporate Document System
 
 <p>
 
-Select a template from the top menu.
+Dear Sir,
 
 </p>
 
 
 
 
+
+
+<p style="text-align:justify;">
+
+Notice is hereby given that the
+
+<b>
+
+First Meeting of the Board of Directors
+
+</b>
+
+of
+
+<b>
+
+GIDIGI TECHNOLOGIES PRIVATE LIMITED
+
+</b>
+
+will be held as per the details given below.
+
+</p>
+
+
+
+
+
+
+
+<table>
+
+<tr>
+
+<th width="35%">
+
+Particulars
+
+</th>
+
+<th>
+
+Details
+
+</th>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+
+Meeting Number
+
+</td>
+
+<td contenteditable="true">
+
+01/2026-27
+
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>
+
+Date
+
+</td>
+
+<td contenteditable="true">
+
+17 June 2026
+
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>
+
+Day
+
+</td>
+
+<td contenteditable="true">
+
+Wednesday
+
+</td>
+
+</tr>
+
+
+
+
+
+<tr>
+
+<td>
+
+Time
+
+</td>
+
+<td contenteditable="true">
+
+11:00 AM
+
+</td>
+
+</tr>
+
+
+
+
+
+
+<tr>
+
+<td>
+
+Venue
+
+</td>
+
+<td contenteditable="true">
+
+Registered Office of the Company
+
+</td>
+
+</tr>
+
+
+
+
+
+
+<tr>
+
+<td>
+
+Mode
+
+</td>
+
+<td contenteditable="true">
+
+Physical Meeting
+
+</td>
+
+</tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<h2>
+
+AGENDA
+
+</h2>
+
+
+
+
+
+
+<ol contenteditable="true">
+
+<li>
+
+To elect Chairman of the Meeting.
+
+</li>
+
+
+
+<li>
+
+To take note of the Certificate of Incorporation.
+
+</li>
+
+
+
+
+
+<li>
+
+To take note of Memorandum of Association and Articles of Association.
+
+</li>
+
+
+
+
+
+<li>
+
+To take note of PAN and TAN allotted to the Company.
+
+</li>
+
+
+
+
+
+<li>
+
+To appoint the First Auditor of the Company.
+
+</li>
+
+
+
+
+
+<li>
+
+To authorize opening of Bank Account.
+
+</li>
+
+
+
+
+
+<li>
+
+To approve issue of Share Certificates.
+
+</li>
+
+
+
+
+
+<li>
+
+To authorize maintenance of statutory registers and records.
+
+</li>
+
+
+
+
+
+<li>
+
+To authorize use of common seal, if any.
+
+</li>
+
+
+
+
+
+<li>
+
+Any other matter with permission of Chair.
+
+</li>
+
+
+
+</ol>
+
+
+
+
+
+
+
+
+<p>
+
+You are requested to make it convenient to attend the meeting.
+
+</p>
+
+
+
+
+
+
+
+<div class="signature-section">
+
+
+
+
+<div class="sign-box">
+
+
+
+
+<b>
+
+By Order of the Board
+
+</b>
+
+
+
+
+
+<br><br><br><br>
+
+________________________
+
+
+
+
+<br>
+
+NITHIN GIDIGI
+
+
+
+
+<br>
+
+Director
+
+
+
+
 </div>
 
 
 
 
 
-</div>
 
 
 
+<div class="sign-box">
 
 
 
+<b>
 
+Place
 
+</b>
 
-
-
-
-
-
-
-
-
-
-<!-- FOOTER -->
-
-
-
-<footer>
-
-
-
-
-
-<div class="footer-left">
-
-
-
-<div class="footer-heading">
-
-Registered Office
-
-</div>
-
-
-
-<div>
-
-House of Gidigi Ankaiah
-
-</div>
-
-
-
-<div>
-
-Utukur Gram Panchayat
-
-</div>
-
-
-
-<div>
+<br>
 
 Utukur
 
+
+
+
+<br><br>
+
+<b>
+
+Date
+
+</b>
+
+<br>
+
+17 June 2026
+
+
+
 </div>
 
 
-
-<div>
-
-Sydapuram
-
-</div>
-
-
-
-<div>
-
-Nellore - 524407
-
-</div>
-
-
-
-<div>
-
-Andhra Pradesh
-
-</div>
 
 
 
@@ -740,61 +495,17 @@ Andhra Pradesh
 
 
 
-<div class="footer-center">
+<div class="note-box">
 
 
 
-<div>
+<b>
 
-VIDHWAAN
-
-</div>
+Note:</b>
 
 
 
-<div>
-
-www.vidhwaan.com
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="footer-right">
-
-Page
-
-<span id="pageNo">
-
-1
-
-</span>
-
-/
-
-<span id="totalPages">
-
-1
-
-</span>
-
-</div>
-
-
-
-
-
-</footer>
-
+Please bring all relevant papers and documents pertaining to the agenda items for discussion and approval.
 
 
 
@@ -806,8 +517,4 @@ Page
 
 
 
-<script src="app.js"></script>
-
-</body>
-
-</html>
+</section>
