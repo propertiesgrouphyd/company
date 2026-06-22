@@ -20,45 +20,27 @@ DO NOT MODIFY
 
 const PDF_ENGINE = {
 
+orientation:"portrait",
 
+format:"a4",
 
-orientation:
-
-"portrait",
-
-
-
-format:
-
-"a4",
-
-
-
-unit:
-
-"mm",
-
-
+unit:"mm",
 
 margin:[
 
-15,
+0,
 
-15,
+0,
 
-15,
+0,
 
-15
+0
 
-],
-
-
+]
 
 filename:
 
 "VIDHWAAN.pdf",
-
-
 
 image:{
 
@@ -72,53 +54,39 @@ quality:
 
 },
 
-
-
 html2canvas:{
 
-
-scale:
-
-3,
-
+scale:2,
 
 useCORS:true,
 
-
 scrollY:0,
 
+logging:false,
 
-logging:false
-
+letterRendering:true
 
 },
 
-
-
 jsPDF:{
-
 
 unit:
 
 "mm",
 
-
 format:
 
 "a4",
 
-
 orientation:
 
-"portrait"
+"portrait",
 
+compress:true
 
 }
 
-
-
 };
-
 
 
 
@@ -130,14 +98,11 @@ DOWNLOAD PDF
 
 function downloadPDF(
 
-
 filename=
 
 "VIDHWAAN.pdf"
 
 ){
-
-
 
 const paper=
 
@@ -148,9 +113,11 @@ document.getElementById(
 );
 
 
+if(
 
+!paper
 
-if(!paper){
+){
 
 alert(
 
@@ -163,55 +130,71 @@ return;
 }
 
 
-
-
-
 const options={
-
-
 
 margin:
 
 PDF_ENGINE.margin,
 
-
-
-
 filename:
 
 filename,
-
-
-
-
 
 image:
 
 PDF_ENGINE.image,
 
-
-
-
-
 html2canvas:
 
 PDF_ENGINE.html2canvas,
 
-
-
-
-
 jsPDF:
 
-PDF_ENGINE.jsPDF
+PDF_ENGINE.jsPDF,
 
+pagebreak:{
 
+mode:[
 
+'css',
+
+'legacy',
+
+'avoid-all'
+
+],
+
+before:
+
+'.page-break',
+
+avoid:[
+
+'table',
+
+'tr',
+
+'td',
+
+'th',
+
+'footer',
+
+'.signature-area',
+
+'h1',
+
+'h2',
+
+'h3',
+
+'h4'
+
+]
+
+}
 
 };
-
-
-
 
 
 html2pdf()
@@ -232,9 +215,7 @@ paper
 
 .catch(
 
-
 err=>{
-
 
 console.error(
 
@@ -242,23 +223,87 @@ err
 
 );
 
-
 alert(
 
 "Unable to generate PDF"
 
 );
 
-
 }
-
 
 );
 
+}
 
+
+
+
+
+const options={
+
+margin:
+
+PDF_ENGINE.margin,
+
+filename:
+
+filename,
+
+image:
+
+PDF_ENGINE.image,
+
+html2canvas:
+
+PDF_ENGINE.html2canvas,
+
+jsPDF:
+
+PDF_ENGINE.jsPDF,
+
+pagebreak:{
+
+mode:[
+
+'css',
+
+'legacy',
+
+'avoid-all'
+
+],
+
+before:
+
+'.page-break',
+
+avoid:[
+
+'table',
+
+'tr',
+
+'td',
+
+'th',
+
+'footer',
+
+'.signature-area',
+
+'h1',
+
+'h2',
+
+'h3',
+
+'h4'
+
+]
 
 }
 
+};
 
 
 
