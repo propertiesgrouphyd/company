@@ -1,25 +1,29 @@
-/* =========================================
+/* =====================================================
 
 VIDHWAAN
 
-Corporate Document System
+Corporate Operating System
 
-FINAL
+VCOS 1.0
 
-========================================= */
+FILE      : app.js
+
+STATUS    : FINAL
+
+DO NOT MODIFY
+
+===================================================== */
 
 "use strict";
 
 
 
-/* =========================================
-
+/* =====================================================
 ELEMENTS
+===================================================== */
 
-========================================= */
 
-
-const templateSelect =
+const templateSelect=
 
 document.getElementById(
 
@@ -29,7 +33,7 @@ document.getElementById(
 
 
 
-const documentContainer =
+const documentContainer=
 
 document.getElementById(
 
@@ -39,27 +43,7 @@ document.getElementById(
 
 
 
-const printBtn =
-
-document.getElementById(
-
-"printBtn"
-
-);
-
-
-
-const pdfBtn =
-
-document.getElementById(
-
-"pdfBtn"
-
-);
-
-
-
-const newBtn =
+const newBtn=
 
 document.getElementById(
 
@@ -69,11 +53,51 @@ document.getElementById(
 
 
 
-const paper =
+const saveBtn=
 
 document.getElementById(
 
-"paper"
+"saveBtn"
+
+);
+
+
+
+const pdfBtn=
+
+document.getElementById(
+
+"pdfBtn"
+
+);
+
+
+
+const printBtn=
+
+document.getElementById(
+
+"printBtn"
+
+);
+
+
+
+const dscBtn=
+
+document.getElementById(
+
+"dscBtn"
+
+);
+
+
+
+const archiveBtn=
+
+document.getElementById(
+
+"archiveBtn"
 
 );
 
@@ -81,83 +105,116 @@ document.getElementById(
 
 
 
-/* =========================================
+/* =====================================================
+STORAGE
+===================================================== */
 
+
+const STORAGE={
+
+
+template:
+
+"vidhwaan_template",
+
+
+
+content:
+
+"vidhwaan_content"
+
+
+
+};
+
+
+
+
+
+
+
+
+/* =====================================================
 NEW DOCUMENT
-
-========================================= */
-
-
-newBtn
-
-.addEventListener(
-
-"click",
-
-()=>{
+===================================================== */
 
 
-documentContainer.innerHTML=`
+function newDocument(){
 
 
-<div class="welcome">
+
+if(
+
+confirm(
+
+"Create new document?"
+
+)
+
+){
 
 
-<h1>
 
-VIDHWAAN
+documentContainer.innerHTML="";
 
-</h1>
-
-
-<p>
-
-Corporate Document System
-
-</p>
-
-
-<p>
-
-Select a template from the top menu.
-
-</p>
-
-
-</div>
-
-`;
 
 
 templateSelect.value="";
 
 
-}
+
+localStorage.removeItem(
+
+STORAGE.template
 
 );
 
 
 
+localStorage.removeItem(
+
+STORAGE.content
+
+);
+
+
+
+hideSignatureArea();
+
+
+
+}
+
+
+
+}
 
 
 
 
 
-/* =========================================
 
+
+
+/* =====================================================
 LOAD TEMPLATE
-
-========================================= */
+===================================================== */
 
 
 async function loadTemplate(
+
 
 template
 
 ){
 
 
-if(!template)
+
+if(
+
+!template
+
+)
 
 return;
 
@@ -185,15 +242,14 @@ if(
 
 !response.ok
 
-){
+)
 
 throw new Error(
 
-"Template not found"
+"Template Not Found"
 
 );
 
-}
 
 
 
@@ -215,6 +271,12 @@ html;
 
 
 
+saveDocument();
+
+
+
+
+
 window.scrollTo({
 
 top:0,
@@ -229,13 +291,13 @@ behavior:"smooth"
 
 }
 
-catch(error){
+catch(err){
 
 
 
 console.error(
 
-error
+err
 
 );
 
@@ -246,28 +308,162 @@ error
 documentContainer.innerHTML=`
 
 
-<div class="welcome">
+<h2>
 
+Unable to load template
 
-<h1>
-
-Error
-
-</h1>
+</h2>
 
 
 <p>
 
-Unable to load template.
+Please check template file.
 
 </p>
-
-
-</div>
 
 `;
 
 
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================
+SAVE DOCUMENT
+===================================================== */
+
+
+function saveDocument(){
+
+
+
+localStorage.setItem(
+
+STORAGE.template,
+
+templateSelect.value
+
+);
+
+
+
+
+
+
+localStorage.setItem(
+
+STORAGE.content,
+
+documentContainer.innerHTML
+
+);
+
+
+
+
+
+
+console.log(
+
+"Saved"
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+LOAD SAVED DOCUMENT
+===================================================== */
+
+
+function loadSaved(){
+
+
+
+const template=
+
+
+localStorage.getItem(
+
+STORAGE.template
+
+);
+
+
+
+
+
+const content=
+
+
+localStorage.getItem(
+
+STORAGE.content
+
+);
+
+
+
+
+
+
+if(
+
+template
+
+){
+
+
+
+templateSelect.value=
+
+template;
+
+
+
+}
+
+
+
+
+
+
+if(
+
+content
+
+){
+
+
+
+documentContainer.innerHTML=
+
+content;
+
+
+
 }
 
 
@@ -281,11 +477,256 @@ Unable to load template.
 
 
 
-/* =========================================
 
-SELECT TEMPLATE
+/* =====================================================
+ARCHIVE
+===================================================== */
 
-========================================= */
+
+function archiveDocument(){
+
+
+
+const archive={
+
+
+
+date:
+
+new Date(),
+
+
+
+
+template:
+
+templateSelect.value,
+
+
+
+
+
+content:
+
+documentContainer.innerHTML
+
+
+
+
+
+};
+
+
+
+
+
+
+let archives=
+
+
+JSON.parse(
+
+localStorage.getItem(
+
+"vidhwaan_archive"
+
+)
+
+)
+
+||
+
+[];
+
+
+
+archives.push(
+
+archive
+
+);
+
+
+
+
+
+
+localStorage.setItem(
+
+"vidhwaan_archive",
+
+JSON.stringify(
+
+archives
+
+)
+
+);
+
+
+
+
+
+
+alert(
+
+"Archived"
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+PDF
+===================================================== */
+
+
+function exportPDF(){
+
+
+
+const fileName=
+
+
+"VIDHWAAN"
+
++
+
+"_"
+
++
+
+new Date()
+
+.getTime()
+
++
+
+".pdf";
+
+
+
+
+
+
+downloadPDF(
+
+fileName
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+PRINT
+===================================================== */
+
+
+function printFile(){
+
+
+
+printDocument();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+DSC
+===================================================== */
+
+
+function toggleDSC(){
+
+
+
+const area=
+
+
+document.getElementById(
+
+"signatureArea"
+
+);
+
+
+
+
+
+
+area
+
+.classList
+
+.toggle(
+
+"show"
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================================
+EVENTS
+===================================================== */
+
+
+newBtn
+
+.addEventListener(
+
+"click",
+
+newDocument
+
+);
+
+
+
+
 
 
 templateSelect
@@ -313,45 +754,19 @@ templateSelect.value
 
 
 
-
-
-
-/* =========================================
-
-PRINT
-
-========================================= */
-
-
-printBtn
+saveBtn
 
 .addEventListener(
 
 "click",
 
-()=>{
-
-
-window.print();
-
-
-}
+saveDocument
 
 );
 
 
 
 
-
-
-
-
-
-/* =========================================
-
-TRUE PDF
-
-========================================= */
 
 
 pdfBtn
@@ -360,127 +775,120 @@ pdfBtn
 
 "click",
 
-()=>{
+exportPDF
 
+);
 
 
-pdfBtn.innerText=
 
-"Preparing...";
 
 
 
+printBtn
 
+.addEventListener(
 
-const options={
+"click",
 
+printFile
 
+);
 
-margin:
 
-[10,10,10,10],
 
 
 
 
+dscBtn
 
+.addEventListener(
 
-filename:
+"click",
 
-templateSelect.value
+toggleDSC
 
-||
+);
 
-"VIDHWAAN_Document"
 
-+
 
-".pdf",
 
 
 
+archiveBtn
 
+.addEventListener(
 
+"click",
 
+archiveDocument
 
-image:{
+);
 
 
-type:
 
-"jpeg",
 
 
-quality:
 
-1
 
-},
 
 
 
+/* =====================================================
+AUTO SAVE
+===================================================== */
 
 
+setInterval(
 
+saveDocument,
 
+5000
 
-html2canvas:{
+);
 
 
 
-scale:
 
-3,
 
 
 
-useCORS:
 
-true,
 
 
+/* =====================================================
+SHORTCUTS
+===================================================== */
 
-scrollY:
 
-0,
+document
 
+.addEventListener(
 
+"keydown",
 
-logging:
+e=>{
 
-false
 
 
+if(
 
-},
+e.ctrlKey
 
+&&
 
+e.key.toLowerCase()
 
+==="s"
 
+){
 
 
 
+e.preventDefault();
 
 
-jsPDF:{
 
-
-
-unit:
-
-"mm",
-
-
-
-format:
-
-"a4",
-
-
-
-orientation:
-
-"portrait"
+saveDocument();
 
 
 
@@ -488,54 +896,37 @@ orientation:
 
 
 
-};
+
+
+if(
+
+e.ctrlKey
+
+&&
+
+e.key.toLowerCase()
+
+==="p"
+
+){
 
 
 
+e.preventDefault();
 
 
 
-
-
-html2pdf()
-
-.set(
-
-options
-
-)
-
-.from(
-
-paper
-
-)
-
-.save()
-
-.then(()=>{
-
-
-pdfBtn.innerText=
-
-"Download PDF";
-
-
-})
-
-.catch(()=>{
-
-
-pdfBtn.innerText=
-
-"Download PDF";
-
-
-});
+printDocument();
 
 
 
-});
+}
+
+
+
+}
+
+);
 
 
 
@@ -546,27 +937,45 @@ pdfBtn.innerText=
 
 
 
-/* =========================================
+/* =====================================================
+START
+===================================================== */
 
-WELCOME
 
-========================================= */
+window
+
+.addEventListener(
+
+"load",
+
+()=>{
+
+
+
+loadSaved();
+
 
 
 console.log(
 
 `
 
-=========================================
+=====================================
 
 VIDHWAAN
 
-Corporate Document System
+Corporate Operating System
 
 READY
 
-=========================================
+=====================================
 
 `
 
 );
+
+
+
+});
+
+
