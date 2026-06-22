@@ -1,245 +1,45 @@
-/* =========================================
+/* =====================================================
 
 VIDHWAAN
-Corporate Document System
-ULTIMATE FINAL
+Corporate Operating System (VCOS)
 
-========================================= */
+FILE        : main.css
+VERSION     : 1.0
+STATUS      : FINAL
+TYPE        : PERMANENT
+
+DO NOT REDESIGN
+
+===================================================== */
+
+
+/* =====================================================
+ROOT
+===================================================== */
 
 :root{
 
 --black:#111111;
+
 --gold:#C9A227;
+
 --gold-light:#E7D38A;
---white:#ffffff;
+
+--white:#FFFFFF;
+
 --gray:#666666;
+
+--light:#F7F7F7;
+
 --border:#EAEAEA;
 
-}
+--success:#1B8A3E;
 
+--danger:#C62828;
 
+--shadow:
 
-/* =========================
-
-RESET
-
-========================= */
-
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
-}
-
-
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-
-
-body{
-
-background:#ececec;
-
-font-family:'Inter',sans-serif;
-
-color:var(--black);
-
-}
-
-
-
-
-
-/* =========================
-
-TOOLBAR
-
-========================= */
-
-
-.toolbar{
-
-position:sticky;
-
-top:0;
-
-z-index:999;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:15px 25px;
-
-background:#111111;
-
-box-shadow:
-
-0 10px 30px
-
-rgba(
-
-0,
-
-0,
-
-0,
-
-0.15
-
-);
-
-}
-
-
-
-.toolbar-left,
-
-.toolbar-right{
-
-display:flex;
-
-gap:12px;
-
-align-items:center;
-
-}
-
-
-
-.toolbar button{
-
-border:none;
-
-outline:none;
-
-cursor:pointer;
-
-padding:
-
-12px 24px;
-
-border-radius:
-
-50px;
-
-background:
-
-var(--gold);
-
-color:
-
-var(--black);
-
-font-size:
-
-14px;
-
-font-weight:
-
-600;
-
-font-family:
-
-'Inter',
-
-sans-serif;
-
-transition:
-
-all .25s ease;
-
-}
-
-
-
-.toolbar button:hover{
-
-transform:
-
-translateY(-2px);
-
-}
-
-
-
-.toolbar select{
-
-height:
-
-46px;
-
-padding:
-
-0 20px;
-
-border:none;
-
-outline:none;
-
-border-radius:
-
-50px;
-
-font-size:
-
-14px;
-
-font-weight:
-
-600;
-
-font-family:
-
-'Inter',
-
-sans-serif;
-
-min-width:
-
-280px;
-
-}
-
-
-
-
-
-/* =========================
-
-A4 PAPER
-
-========================= */
-
-
-.paper{
-
-width:210mm;
-
-min-height:297mm;
-
-margin:45px auto;
-
-padding:18mm;
-
-background:white;
-
-position:relative;
-
-overflow:hidden;
-
-box-shadow:
-
-0 15px 50px
+0 20px 60px
 
 rgba(
 
@@ -256,122 +56,227 @@ rgba(
 }
 
 
+/* =====================================================
+RESET
+===================================================== */
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
 
 
+html{
 
-/* =========================
+scroll-behavior:smooth;
 
-WATERMARK
-
-========================= */
+}
 
 
-.watermark{
+body{
 
-position:absolute;
+background:#ececec;
 
-inset:0;
+font-family:
 
-display:flex;
+'Inter',
 
-justify-content:center;
+sans-serif;
 
-align-items:center;
+color:
 
-pointer-events:none;
+var(--black);
 
-z-index:0;
+padding:
+
+25px;
 
 }
 
 
 
-.watermark img{
 
-width:300px;
+/* =====================================================
+A4 PAPER
+===================================================== */
 
-opacity:0.035;
+.paper{
+
+
+width:
+
+210mm;
+
+
+
+min-height:
+
+297mm;
+
+
+
+background:
+
+var(--white);
+
+
+
+margin:
+
+auto;
+
+
+
+padding:
+
+15mm;
+
+
+
+position:
+
+relative;
+
+
+
+overflow:hidden;
+
+
+
+box-shadow:
+
+var(--shadow);
+
+
 
 }
 
 
 
 
-
-/* =========================
-
+/* =====================================================
 LETTERHEAD
-
-========================= */
-
+===================================================== */
 
 .letterhead{
 
-position:relative;
-
-z-index:2;
 
 display:grid;
 
+
+
 grid-template-columns:
 
-80px
+85px
 
 1fr
 
-150px;
+230px;
+
+
 
 gap:
 
-18px;
+15px;
+
+
 
 align-items:center;
+
+
 
 padding-bottom:
 
-18px;
+14px;
+
+
+
+position:relative;
+
+
+
+z-index:2;
+
+
 
 }
 
 
 
 
+/* =====================================================
+LOGO
+===================================================== */
 
 .logo-box{
 
+
 display:flex;
 
-justify-content:center;
+
 
 align-items:center;
 
+
+
+justify-content:center;
+
+
+
 }
+
 
 
 
 .logo{
 
-width:78px;
 
-height:78px;
+width:
 
-object-fit:contain;
+72px;
+
+
+
+height:
+
+72px;
+
+
+
+object-fit:
+
+contain;
+
+
 
 }
 
 
 
 
+/* =====================================================
+COMPANY
+===================================================== */
 
 .company-box{
 
+
 text-align:center;
 
+
+
 }
+
 
 
 
 .brand{
+
 
 font-family:
 
@@ -379,181 +284,219 @@ font-family:
 
 serif;
 
+
+
 font-size:
 
-44px;
+42px;
+
+
 
 font-weight:
 
 700;
+
+
 
 letter-spacing:
 
 5px;
 
+
+
 line-height:
 
 1;
 
-white-space:
 
-nowrap;
 
 color:
 
 var(--black);
 
+
+
 }
+
 
 
 
 .company-name{
 
-margin-top:
-
-10px;
-
-font-size:
-
-11px;
-
-font-weight:
-
-700;
-
-letter-spacing:
-
-2px;
-
-text-transform:
-
-uppercase;
-
-color:
-
-#444;
-
-}
-
-
-
-.tagline{
 
 margin-top:
 
 10px;
 
-font-size:
 
-9px;
-
-font-weight:
-
-700;
-
-letter-spacing:
-
-1.5px;
-
-text-transform:
-
-uppercase;
-
-color:
-
-var(--gold);
-
-}
-
-
-
-
-
-/* =========================
-
-META
-
-========================= */
-
-
-.meta-box{
 
 font-size:
 
-10px;
+14px;
+
+
 
 font-weight:
 
 600;
 
+
+
+letter-spacing:
+
+2px;
+
+
+
+text-transform:
+
+uppercase;
+
+
+
+color:
+
+#333;
+
+
+
+line-height:
+
+1.6;
+
+
+
+}
+
+
+
+
+/* =====================================================
+COMPANY META
+===================================================== */
+
+.meta-box{
+
+
+font-size:
+
+11px;
+
+
+
+font-weight:
+
+600;
+
+
+
 color:
 
 #555;
 
+
+
 }
+
 
 
 
 .meta-row{
 
-display:grid;
 
-grid-template-columns:
+display:flex;
 
-35px
 
-1fr;
 
-gap:
+justify-content:
 
-8px;
+space-between;
+
+
+
+align-items:center;
+
+
 
 padding:
 
 5px 0;
 
+
+
+gap:
+
+12px;
+
+
+
 }
 
 
 
-.meta-row div:first-child{
+
+.meta-row span:first-child{
+
 
 color:
 
-#777;
+#888;
+
+
+
+min-width:
+
+40px;
+
+
 
 }
 
 
 
-.meta-row div:last-child{
+
+.meta-row span:last-child{
+
+
+text-align:right;
+
+
+
+color:
+
+#222;
+
+
 
 word-break:
 
 break-word;
 
+
+
 }
 
 
 
 
-
-/* =========================
-
-GOLD LINE
-
-========================= */
-
+/* =====================================================
+DIVIDER
+===================================================== */
 
 .gold-line{
+
 
 height:
 
 2px;
 
+
+
 margin:
 
-10px 0 35px;
+0 0 20px;
+
+
 
 background:
 
@@ -573,42 +516,357 @@ transparent
 
 );
 
+
+
 }
 
 
 
 
+/* =====================================================
+TOOLBAR
+===================================================== */
 
-/* =========================
+.toolbar{
 
+
+position:sticky;
+
+
+
+top:0;
+
+
+
+z-index:999;
+
+
+
+display:flex;
+
+
+
+justify-content:
+
+space-between;
+
+
+
+align-items:center;
+
+
+
+gap:
+
+15px;
+
+
+
+padding:
+
+14px 20px;
+
+
+
+margin-bottom:
+
+25px;
+
+
+
+background:
+
+#111111;
+
+
+
+border-radius:
+
+14px;
+
+
+
+box-shadow:
+
+0 10px 35px
+
+rgba(
+
+0,
+
+0,
+
+0,
+
+0.15
+
+);
+
+
+
+}
+
+
+
+
+.toolbar-left,
+
+.toolbar-right{
+
+
+display:flex;
+
+
+
+gap:
+
+12px;
+
+
+
+align-items:center;
+
+
+
+flex-wrap:wrap;
+
+
+
+}
+
+
+
+
+/* =====================================================
+BUTTONS
+===================================================== */
+
+.toolbar button{
+
+
+border:none;
+
+
+
+outline:none;
+
+
+
+cursor:pointer;
+
+
+
+padding:
+
+11px 22px;
+
+
+
+border-radius:
+
+50px;
+
+
+
+font-size:
+
+14px;
+
+
+
+font-weight:
+
+600;
+
+
+
+font-family:
+
+'Inter',
+
+sans-serif;
+
+
+
+background:
+
+var(--gold);
+
+
+
+color:
+
+var(--black);
+
+
+
+transition:
+
+all .25s ease;
+
+
+
+}
+
+
+
+
+.toolbar button:hover{
+
+
+transform:
+
+translateY(-2px);
+
+
+
+}
+
+
+
+
+.toolbar button:active{
+
+
+transform:
+
+scale(.98);
+
+
+
+}
+
+
+
+
+/* =====================================================
+SELECT
+===================================================== */
+
+.toolbar select{
+
+
+height:
+
+44px;
+
+
+
+min-width:
+
+250px;
+
+
+
+padding:
+
+0 16px;
+
+
+
+border:none;
+
+
+
+outline:none;
+
+
+
+border-radius:
+
+50px;
+
+
+
+font-size:
+
+14px;
+
+
+
+font-family:
+
+'Inter',
+
+sans-serif;
+
+
+
+font-weight:
+
+600;
+
+
+
+background:
+
+white;
+
+
+
+color:
+
+#222;
+
+
+
+}
+
+
+
+
+/* =====================================================
 DOCUMENT AREA
-
-========================= */
-
+===================================================== */
 
 #document-container{
 
+
+min-height:
+
+760px;
+
+
+
 position:relative;
+
+
 
 z-index:2;
 
-min-height:900px;
 
-font-size:15px;
 
-line-height:1.9;
+font-size:
 
-color:#222;
+15px;
+
+
+
+line-height:
+
+1.9;
+
+
+
+color:
+
+#222;
+
+
 
 }
+
 
 
 
 #document-container h1,
 
+
 #document-container h2,
 
+
 #document-container h3{
+
 
 font-family:
 
@@ -616,69 +874,106 @@ font-family:
 
 serif;
 
+
+
 font-weight:
 
 600;
+
+
 
 margin:
 
 28px 0 18px;
 
+
+
 color:
 
 var(--black);
 
+
+
 }
+
 
 
 
 #document-container p{
 
+
 margin-bottom:
 
 18px;
 
+
+
 }
+
 
 
 
 #document-container ul,
 
+
 #document-container ol{
+
 
 padding-left:
 
-28px;
+30px;
+
+
+
+margin-bottom:
+
+18px;
+
+
 
 }
+
 
 
 
 #document-container li{
 
+
 margin-bottom:
 
 10px;
+
+
 
 }
 
 
 
 
+/* =====================================================
+TABLES
+===================================================== */
 
-#document-container table{
+table{
+
 
 width:
 
 100%;
 
+
+
 border-collapse:
 
 collapse;
 
+
+
 margin:
 
 25px 0;
+
+
 
 font-family:
 
@@ -686,17 +981,18 @@ font-family:
 
 sans-serif;
 
+
+
 }
 
 
 
-#document-container td,
 
-#document-container th{
+th,
 
-padding:
 
-14px;
+td{
+
 
 border:
 
@@ -704,107 +1000,228 @@ border:
 
 var(--border);
 
+
+
+padding:
+
+12px;
+
+
+
+font-size:
+
+14px;
+
+
+
 }
 
 
 
-#document-container th{
+
+th{
+
 
 background:
 
 #fafafa;
 
+
+
 font-weight:
 
 600;
 
+
+
 }
 
 
 
 
+/* =====================================================
+FORM ELEMENTS
+===================================================== */
 
-/* =========================
-
-WELCOME
-
-========================= */
-
-
-.welcome{
-
-text-align:center;
-
-padding-top:140px;
-
-}
+input,
 
 
+textarea,
 
-.welcome h1{
+
+select{
+
 
 font-family:
 
-'Cinzel',
+'Inter',
 
-serif;
+sans-serif;
+
+
 
 font-size:
 
-58px;
-
-font-weight:
-
-700;
-
-letter-spacing:
-
-6px;
-
-margin-bottom:
-
-18px;
-
-}
+14px;
 
 
 
-.welcome p{
+border:
 
-font-size:
+1px solid
 
-18px;
+var(--border);
 
-color:
 
-#666;
 
-margin-bottom:
+outline:none;
 
-10px;
+
 
 }
 
 
 
 
-
-/* =========================
-
-FOOTER
-
-========================= */
+input,
 
 
-footer{
+select{
+
+
+height:
+
+42px;
+
+
+
+padding:
+
+0 14px;
+
+
+
+}
+
+
+
+
+textarea{
+
+
+padding:
+
+14px;
+
+
+
+resize:vertical;
+
+
+
+}
+
+
+
+
+input:focus,
+
+
+textarea:focus,
+
+
+select:focus{
+
+
+border-color:
+
+var(--gold);
+
+
+
+}
+
+
+
+
+/* =====================================================
+SIGNATURE AREA
+===================================================== */
+
+.signature-area{
+
+
+display:none;
+
+
 
 margin-top:
 
-70px;
+50px;
+
+
 
 padding-top:
 
-20px;
+25px;
+
+
+
+border-top:
+
+1px dashed
+
+#aaa;
+
+
+
+font-size:
+
+13px;
+
+
+
+line-height:
+
+2;
+
+
+
+}
+
+
+
+
+.signature-area.show{
+
+
+display:block;
+
+
+
+}
+
+
+
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+footer{
+
+
+margin-top:
+
+60px;
+
+
+
+padding-top:
+
+18px;
+
+
 
 border-top:
 
@@ -812,159 +1229,196 @@ border-top:
 
 var(--border);
 
+
+
 display:flex;
+
+
 
 justify-content:
 
 space-between;
 
+
+
+gap:
+
+25px;
+
+
+
 font-size:
 
 11px;
 
+
+
 line-height:
 
-1.9;
+1.8;
+
+
 
 color:
 
 #666;
 
+
+
 }
+
 
 
 
 .footer-left{
 
+
 max-width:
 
-40%;
+260px;
+
+
 
 }
+
 
 
 
 .footer-center{
 
+
 text-align:center;
 
+
+
 }
+
 
 
 
 .footer-right{
 
+
 text-align:right;
 
-font-weight:600;
 
-}
-
-
-
-.footer-heading{
-
-font-weight:700;
-
-text-transform:uppercase;
-
-letter-spacing:1px;
-
-color:#111;
-
-margin-bottom:6px;
 
 }
 
 
 
 
+/* =====================================================
+WATERMARK
+===================================================== */
 
-/* =========================
-
-COMMON TEMPLATE STYLES
-
-========================= */
+.watermark{
 
 
-.template{
-
-font-size:15px;
-
-line-height:1.9;
-
-}
+position:absolute;
 
 
 
-.doc-title{
-
-font-family:'Cinzel',serif;
-
-font-size:34px;
-
-font-weight:700;
-
-text-align:center;
-
-margin-bottom:30px;
-
-letter-spacing:2px;
-
-}
+inset:0;
 
 
-
-.doc-meta{
-
-display:grid;
-
-grid-template-columns:
-
-repeat(2,1fr);
-
-gap:12px;
-
-margin-bottom:30px;
-
-}
-
-
-
-.signature-section{
 
 display:flex;
 
-justify-content:space-between;
 
-margin-top:60px;
+
+justify-content:center;
+
+
+
+align-items:center;
+
+
+
+pointer-events:none;
+
+
+
+z-index:0;
+
+
 
 }
 
 
 
-.sign-box{
 
-width:45%;
+.watermark img{
+
+
+width:
+
+350px;
+
+
+
+opacity:
+
+0.03;
+
+
+
+object-fit:
+
+contain;
+
+
 
 }
 
 
 
 
+/* =====================================================
+PAGE BREAK
+===================================================== */
 
-/* =========================
+.page-break{
 
+
+page-break-before:
+
+always;
+
+
+
+break-before:
+
+page;
+
+
+
+}
+
+
+
+
+/* =====================================================
 PRINT
-
-========================= */
-
+===================================================== */
 
 @media print{
 
+
 body{
 
-background:white;
+
+background:
+
+white;
+
+
+
+padding:
+
+0;
+
+
 
 }
 
@@ -972,7 +1426,10 @@ background:white;
 
 .toolbar{
 
+
 display:none;
+
+
 
 }
 
@@ -980,15 +1437,28 @@ display:none;
 
 .paper{
 
+
 width:100%;
 
-margin:0;
+
 
 min-height:auto;
 
-padding:18mm;
+
+
+margin:0;
+
+
+
+padding:
+
+15mm;
+
+
 
 box-shadow:none;
+
+
 
 }
 
@@ -996,8 +1466,28 @@ box-shadow:none;
 
 .watermark img{
 
-opacity:0.03;
+
+opacity:
+
+0.025;
+
+
 
 }
 
+
+
+#document-container{
+
+
+min-height:auto;
+
+
+
 }
+
+
+
+}
+
+
