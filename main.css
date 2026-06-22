@@ -70,6 +70,16 @@ box-sizing:border-box;
 
 }
 
+*,
+
+*::before,
+
+*::after{
+
+box-sizing:border-box;
+
+}
+
 
 html{
 
@@ -94,7 +104,10 @@ var(--black);
 
 padding:
 
-25px;
+35px;
+
+overflow-x:auto;
+
 
 }
 
@@ -107,19 +120,25 @@ A4 PAPER
 
 .paper{
 
-width:210mm;
+width:100%;
+
+max-width:210mm;
 
 min-height:297mm;
 
-background:var(--white);
+background:#fff;
 
 margin:auto;
 
-padding:12mm;
+padding:10mm;
 
 position:relative;
 
 overflow:visible;
+
+word-wrap:break-word;
+
+overflow-wrap:anywhere;
 
 box-shadow:var(--shadow);
 
@@ -137,11 +156,11 @@ display:grid;
 
 grid-template-columns:
 
-75px
+70px
 
-minmax(0,1fr)
+1fr
 
-190px;
+130px;
 
 gap:12px;
 
@@ -150,6 +169,8 @@ align-items:center;
 padding-bottom:14px;
 
 position:relative;
+
+overflow:visible;
 
 z-index:2;
 
@@ -179,7 +200,15 @@ justify-content:center;
 }
 
 
+img{
 
+max-width:100%;
+
+height:auto;
+
+display:block;
+
+}
 
 .logo{
 
@@ -204,7 +233,21 @@ contain;
 
 }
 
+section,
 
+article,
+
+.card,
+
+.block,
+
+.content-box{
+
+page-break-inside:avoid;
+
+break-inside:avoid;
+
+}
 
 
 /* =====================================================
@@ -899,24 +942,15 @@ TABLES
 
 table{
 
+width:100%;
 
-width:
+max-width:100%;
 
-100%;
+table-layout:fixed;
 
+border-collapse:collapse;
 
-
-border-collapse:
-
-collapse;
-
-
-
-margin:
-
-25px 0;
-
-
+margin:25px 0;
 
 font-family:
 
@@ -924,18 +958,17 @@ font-family:
 
 sans-serif;
 
+page-break-inside:avoid;
 
+break-inside:avoid;
 
 }
 
 
 
-
 th,
 
-
 td{
-
 
 border:
 
@@ -943,39 +976,15 @@ border:
 
 var(--border);
 
+padding:12px;
 
+font-size:14px;
 
-padding:
+vertical-align:top;
 
-12px;
+overflow-wrap:anywhere;
 
-
-
-font-size:
-
-14px;
-
-
-
-}
-
-
-
-
-th{
-
-
-background:
-
-#fafafa;
-
-
-
-font-weight:
-
-600;
-
-
+word-break:break-word;
 
 }
 
@@ -1290,22 +1299,57 @@ PAGE BREAK
 
 .page-break{
 
+display:block;
 
-page-break-before:
+height:0;
 
-always;
+margin:0;
 
+border:0;
 
+page-break-before:always;
 
-break-before:
+break-before:page;
 
-page;
+page-break-after:auto;
 
-
+break-after:auto;
 
 }
 
+h1,
 
+h2,
+
+h3,
+
+h4,
+
+h5,
+
+h6,
+
+table,
+
+tr,
+
+td,
+
+th,
+
+footer,
+
+.signature-area{
+
+page-break-inside:avoid;
+
+break-inside:avoid;
+
+page-break-after:auto;
+
+break-after:auto;
+
+}
 
 
 /* =====================================================
@@ -1318,7 +1362,7 @@ PRINT
 
 size:A4;
 
-margin:12mm;
+margin:5mm;
 
 }
 
@@ -1346,7 +1390,7 @@ min-height:auto;
 
 margin:0;
 
-padding:0;
+padding:5mm;
 
 box-shadow:none;
 
