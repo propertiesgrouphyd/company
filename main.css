@@ -1,45 +1,245 @@
-/* =====================================================
+/* =========================================
 
 VIDHWAAN
-Corporate Operating System (VCOS)
+Corporate Document System
+ULTIMATE FINAL
 
-FILE        : main.css
-VERSION     : 1.0
-STATUS      : FINAL
-TYPE        : PERMANENT
-
-DO NOT REDESIGN
-
-===================================================== */
-
-
-/* =====================================================
-ROOT
-===================================================== */
+========================================= */
 
 :root{
 
 --black:#111111;
-
 --gold:#C9A227;
-
 --gold-light:#E7D38A;
-
---white:#FFFFFF;
-
+--white:#ffffff;
 --gray:#666666;
-
---light:#F7F7F7;
-
 --border:#EAEAEA;
 
---success:#1B8A3E;
+}
 
---danger:#C62828;
 
---shadow:
 
-0 20px 60px
+/* =========================
+
+RESET
+
+========================= */
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+
+
+body{
+
+background:#ececec;
+
+font-family:'Inter',sans-serif;
+
+color:var(--black);
+
+}
+
+
+
+
+
+/* =========================
+
+TOOLBAR
+
+========================= */
+
+
+.toolbar{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:15px 25px;
+
+background:#111111;
+
+box-shadow:
+
+0 10px 30px
+
+rgba(
+
+0,
+
+0,
+
+0,
+
+0.15
+
+);
+
+}
+
+
+
+.toolbar-left,
+
+.toolbar-right{
+
+display:flex;
+
+gap:12px;
+
+align-items:center;
+
+}
+
+
+
+.toolbar button{
+
+border:none;
+
+outline:none;
+
+cursor:pointer;
+
+padding:
+
+12px 24px;
+
+border-radius:
+
+50px;
+
+background:
+
+var(--gold);
+
+color:
+
+var(--black);
+
+font-size:
+
+14px;
+
+font-weight:
+
+600;
+
+font-family:
+
+'Inter',
+
+sans-serif;
+
+transition:
+
+all .25s ease;
+
+}
+
+
+
+.toolbar button:hover{
+
+transform:
+
+translateY(-2px);
+
+}
+
+
+
+.toolbar select{
+
+height:
+
+46px;
+
+padding:
+
+0 20px;
+
+border:none;
+
+outline:none;
+
+border-radius:
+
+50px;
+
+font-size:
+
+14px;
+
+font-weight:
+
+600;
+
+font-family:
+
+'Inter',
+
+sans-serif;
+
+min-width:
+
+280px;
+
+}
+
+
+
+
+
+/* =========================
+
+A4 PAPER
+
+========================= */
+
+
+.paper{
+
+width:210mm;
+
+min-height:297mm;
+
+margin:45px auto;
+
+padding:18mm;
+
+background:white;
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:
+
+0 15px 50px
 
 rgba(
 
@@ -56,218 +256,122 @@ rgba(
 }
 
 
-/* =====================================================
-RESET
-===================================================== */
-
-*{
-
-margin:0;
-
-padding:0;
-
-box-sizing:border-box;
-
-}
-
-*,
-
-*::before,
-
-*::after{
-
-box-sizing:border-box;
-
-}
 
 
-html{
 
-scroll-behavior:smooth;
+/* =========================
+
+WATERMARK
+
+========================= */
+
+
+.watermark{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+pointer-events:none;
+
+z-index:0;
 
 }
 
 
-body{
 
-background:#ececec;
+.watermark img{
 
-font-family:
+width:300px;
 
-'Inter',
-
-sans-serif;
-
-color:
-
-var(--black);
-
-padding:
-
-35px;
-
-overflow-x:auto;
-
+opacity:0.035;
 
 }
 
 
 
 
-/* =====================================================
-A4 PAPER
-===================================================== */
 
-.paper{
+/* =========================
 
-width:100%;
+LETTERHEAD
 
-max-width:210mm;
+========================= */
 
-min-height:297mm;
 
-background:#fff;
-
-margin:auto;
-
-padding:10mm;
+.letterhead{
 
 position:relative;
 
-overflow:visible;
-
-word-wrap:break-word;
-
-overflow-wrap:anywhere;
-
-box-shadow:var(--shadow);
-
-}
-
-
-
-/* =====================================================
-LETTERHEAD
-===================================================== */
-
-.letterhead{
+z-index:2;
 
 display:grid;
 
 grid-template-columns:
 
-70px
+80px
 
 1fr
 
-130px;
+150px;
 
-gap:12px;
+gap:
+
+18px;
 
 align-items:center;
 
-padding-bottom:14px;
+padding-bottom:
 
-position:relative;
-
-overflow:visible;
-
-z-index:2;
+18px;
 
 }
 
 
 
-/* =====================================================
-LOGO
-===================================================== */
+
 
 .logo-box{
 
-
 display:flex;
-
-
-
-align-items:center;
-
-
 
 justify-content:center;
 
-
-
-}
-
-
-img{
-
-max-width:100%;
-
-height:auto;
-
-display:block;
+align-items:center;
 
 }
+
+
 
 .logo{
 
+width:78px;
 
-width:
+height:78px;
 
-72px;
-
-
-
-height:
-
-72px;
-
-
-
-object-fit:
-
-contain;
-
-
-
-}
-
-section,
-
-article,
-
-.card,
-
-.block,
-
-.content-box{
-
-page-break-inside:avoid;
-
-break-inside:avoid;
+object-fit:contain;
 
 }
 
 
-/* =====================================================
-COMPANY
-===================================================== */
+
+
 
 .company-box{
 
-
 text-align:center;
 
-
-
 }
-
 
 
 
 .brand{
-
 
 font-family:
 
@@ -275,214 +379,181 @@ font-family:
 
 serif;
 
-
-
 font-size:
 
-38px;
-
-
+44px;
 
 font-weight:
 
 700;
 
-
-
 letter-spacing:
 
 5px;
-
-
 
 line-height:
 
 1;
 
+white-space:
 
+nowrap;
 
 color:
 
 var(--black);
 
-
-
 }
-
 
 
 
 .company-name{
 
-
 margin-top:
 
 10px;
-
-
-
-font-size:
-
-14px;
-
-
-
-font-weight:
-
-600;
-
-
-
-letter-spacing:
-
-2px;
-
-
-
-text-transform:
-
-uppercase;
-
-
-
-color:
-
-#333;
-
-
-
-line-height:
-
-1.6;
-
-
-
-}
-
-
-
-
-/* =====================================================
-COMPANY META
-===================================================== */
-
-.meta-box{
-
 
 font-size:
 
 11px;
 
+font-weight:
 
+700;
+
+letter-spacing:
+
+2px;
+
+text-transform:
+
+uppercase;
+
+color:
+
+#444;
+
+}
+
+
+
+.tagline{
+
+margin-top:
+
+10px;
+
+font-size:
+
+9px;
+
+font-weight:
+
+700;
+
+letter-spacing:
+
+1.5px;
+
+text-transform:
+
+uppercase;
+
+color:
+
+var(--gold);
+
+}
+
+
+
+
+
+/* =========================
+
+META
+
+========================= */
+
+
+.meta-box{
+
+font-size:
+
+10px;
 
 font-weight:
 
 600;
 
-
-
 color:
 
 #555;
 
-
-
 }
-
 
 
 
 .meta-row{
 
+display:grid;
 
-display:flex;
+grid-template-columns:
 
+35px
 
+1fr;
 
-justify-content:
+gap:
 
-space-between;
-
-
-
-align-items:center;
-
-
+8px;
 
 padding:
 
 5px 0;
 
-
-
-gap:
-
-12px;
-
-
-
 }
 
 
 
-
-.meta-row span:first-child{
-
+.meta-row div:first-child{
 
 color:
 
-#888;
+#777;
+
+}
 
 
 
-min-width:
+.meta-row div:last-child{
 
-40px;
+word-break:
 
-
+break-word;
 
 }
 
 
 
 
-.meta-row span:last-child{
 
-text-align:right;
+/* =========================
 
-color:#222;
+GOLD LINE
 
-font-size:10px;
+========================= */
 
-max-width:130px;
-
-overflow-wrap:anywhere;
-
-word-break:break-word;
-
-}
-
-
-
-
-/* =====================================================
-DIVIDER
-===================================================== */
 
 .gold-line{
-
 
 height:
 
 2px;
 
-
-
 margin:
 
-0 0 20px;
-
-
+10px 0 35px;
 
 background:
 
@@ -502,357 +573,42 @@ transparent
 
 );
 
-
-
 }
 
 
 
 
-/* =====================================================
-TOOLBAR
-===================================================== */
 
-.toolbar{
+/* =========================
 
-
-position:sticky;
-
-
-
-top:0;
-
-
-
-z-index:999;
-
-
-
-display:flex;
-
-
-
-justify-content:
-
-space-between;
-
-
-
-align-items:center;
-
-
-
-gap:
-
-15px;
-
-
-
-padding:
-
-14px 20px;
-
-
-
-margin-bottom:
-
-25px;
-
-
-
-background:
-
-#111111;
-
-
-
-border-radius:
-
-14px;
-
-
-
-box-shadow:
-
-0 10px 35px
-
-rgba(
-
-0,
-
-0,
-
-0,
-
-0.15
-
-);
-
-
-
-}
-
-
-
-
-.toolbar-left,
-
-.toolbar-right{
-
-
-display:flex;
-
-
-
-gap:
-
-12px;
-
-
-
-align-items:center;
-
-
-
-flex-wrap:wrap;
-
-
-
-}
-
-
-
-
-/* =====================================================
-BUTTONS
-===================================================== */
-
-.toolbar button{
-
-
-border:none;
-
-
-
-outline:none;
-
-
-
-cursor:pointer;
-
-
-
-padding:
-
-11px 22px;
-
-
-
-border-radius:
-
-50px;
-
-
-
-font-size:
-
-14px;
-
-
-
-font-weight:
-
-600;
-
-
-
-font-family:
-
-'Inter',
-
-sans-serif;
-
-
-
-background:
-
-var(--gold);
-
-
-
-color:
-
-var(--black);
-
-
-
-transition:
-
-all .25s ease;
-
-
-
-}
-
-
-
-
-.toolbar button:hover{
-
-
-transform:
-
-translateY(-2px);
-
-
-
-}
-
-
-
-
-.toolbar button:active{
-
-
-transform:
-
-scale(.98);
-
-
-
-}
-
-
-
-
-/* =====================================================
-SELECT
-===================================================== */
-
-.toolbar select{
-
-
-height:
-
-44px;
-
-
-
-min-width:
-
-250px;
-
-
-
-padding:
-
-0 16px;
-
-
-
-border:none;
-
-
-
-outline:none;
-
-
-
-border-radius:
-
-50px;
-
-
-
-font-size:
-
-14px;
-
-
-
-font-family:
-
-'Inter',
-
-sans-serif;
-
-
-
-font-weight:
-
-600;
-
-
-
-background:
-
-white;
-
-
-
-color:
-
-#222;
-
-
-
-}
-
-
-
-
-/* =====================================================
 DOCUMENT AREA
-===================================================== */
+
+========================= */
+
 
 #document-container{
 
-
-min-height:
-
-760px;
-
-
-
 position:relative;
-
-
 
 z-index:2;
 
+min-height:900px;
 
+font-size:15px;
 
-font-size:
+line-height:1.9;
 
-15px;
-
-
-
-line-height:
-
-1.9;
-
-
-
-color:
-
-#222;
-
-
+color:#222;
 
 }
-
 
 
 
 #document-container h1,
 
-
 #document-container h2,
 
-
 #document-container h3{
-
 
 font-family:
 
@@ -860,97 +616,69 @@ font-family:
 
 serif;
 
-
-
 font-weight:
 
 600;
-
-
 
 margin:
 
 28px 0 18px;
 
-
-
 color:
 
 var(--black);
 
-
-
 }
-
 
 
 
 #document-container p{
 
-
 margin-bottom:
 
 18px;
 
-
-
 }
-
 
 
 
 #document-container ul,
 
-
 #document-container ol{
-
 
 padding-left:
 
-30px;
-
-
-
-margin-bottom:
-
-18px;
-
-
+28px;
 
 }
-
 
 
 
 #document-container li{
 
-
 margin-bottom:
 
 10px;
-
-
 
 }
 
 
 
 
-/* =====================================================
-TABLES
-===================================================== */
 
-table{
+#document-container table{
 
-width:100%;
+width:
 
-max-width:100%;
+100%;
 
-table-layout:fixed;
+border-collapse:
 
-border-collapse:collapse;
+collapse;
 
-margin:25px 0;
+margin:
+
+25px 0;
 
 font-family:
 
@@ -958,17 +686,17 @@ font-family:
 
 sans-serif;
 
-page-break-inside:avoid;
-
-break-inside:avoid;
-
 }
 
 
 
-th,
+#document-container td,
 
-td{
+#document-container th{
+
+padding:
+
+14px;
 
 border:
 
@@ -976,405 +704,271 @@ border:
 
 var(--border);
 
-padding:12px;
+}
 
-font-size:14px;
 
-vertical-align:top;
 
-overflow-wrap:anywhere;
+#document-container th{
 
-word-break:break-word;
+background:
+
+#fafafa;
+
+font-weight:
+
+600;
 
 }
 
 
 
 
-/* =====================================================
-FORM ELEMENTS
-===================================================== */
 
-input,
+/* =========================
 
+WELCOME
 
-textarea,
+========================= */
 
 
-select{
+.welcome{
 
+text-align:center;
+
+padding-top:140px;
+
+}
+
+
+
+.welcome h1{
 
 font-family:
 
-'Inter',
+'Cinzel',
 
-sans-serif;
-
-
+serif;
 
 font-size:
 
-14px;
+58px;
+
+font-weight:
+
+700;
+
+letter-spacing:
+
+6px;
+
+margin-bottom:
+
+18px;
+
+}
 
 
 
-border:
+.welcome p{
+
+font-size:
+
+18px;
+
+color:
+
+#666;
+
+margin-bottom:
+
+10px;
+
+}
+
+
+
+
+
+/* =========================
+
+FOOTER
+
+========================= */
+
+
+footer{
+
+margin-top:
+
+70px;
+
+padding-top:
+
+20px;
+
+border-top:
 
 1px solid
 
 var(--border);
 
+display:flex;
 
+justify-content:
 
-outline:none;
-
-
-
-}
-
-
-
-
-input,
-
-
-select{
-
-
-height:
-
-42px;
-
-
-
-padding:
-
-0 14px;
-
-
-
-}
-
-
-
-
-textarea{
-
-
-padding:
-
-14px;
-
-
-
-resize:vertical;
-
-
-
-}
-
-
-
-
-input:focus,
-
-
-textarea:focus,
-
-
-select:focus{
-
-
-border-color:
-
-var(--gold);
-
-
-
-}
-
-
-
-
-/* =====================================================
-SIGNATURE AREA
-===================================================== */
-
-.signature-area{
-
-
-display:none;
-
-
-
-margin-top:
-
-50px;
-
-
-
-padding-top:
-
-25px;
-
-
-
-border-top:
-
-1px dashed
-
-#aaa;
-
-
+space-between;
 
 font-size:
 
-13px;
-
-
+11px;
 
 line-height:
 
-2;
+1.9;
 
+color:
 
-
-}
-
-
-
-
-.signature-area.show{
-
-
-display:block;
-
-
+#666;
 
 }
-
-
-
-
-/* =====================================================
-FOOTER
-===================================================== */
-
-footer{
-
-margin-top:35px;
-
-padding-top:15px;
-
-border-top:1px solid var(--border);
-
-display:flex;
-
-justify-content:space-between;
-
-gap:15px;
-
-font-size:10px;
-
-line-height:1.6;
-
-color:#666;
-
-page-break-inside:avoid;
-
-break-inside:avoid;
-
-}
-
 
 
 
 .footer-left{
 
-
 max-width:
 
-260px;
-
-
+40%;
 
 }
-
 
 
 
 .footer-center{
 
-
 text-align:center;
 
-
-
 }
-
 
 
 
 .footer-right{
 
-
 text-align:right;
 
+font-weight:600;
 
+}
+
+
+
+.footer-heading{
+
+font-weight:700;
+
+text-transform:uppercase;
+
+letter-spacing:1px;
+
+color:#111;
+
+margin-bottom:6px;
 
 }
 
 
 
 
-/* =====================================================
-WATERMARK
-===================================================== */
 
-.watermark{
+/* =========================
 
+COMMON TEMPLATE STYLES
 
-position:absolute;
+========================= */
 
 
+.template{
 
-inset:0;
+font-size:15px;
+
+line-height:1.9;
+
+}
 
 
+
+.doc-title{
+
+font-family:'Cinzel',serif;
+
+font-size:34px;
+
+font-weight:700;
+
+text-align:center;
+
+margin-bottom:30px;
+
+letter-spacing:2px;
+
+}
+
+
+
+.doc-meta{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+gap:12px;
+
+margin-bottom:30px;
+
+}
+
+
+
+.signature-section{
 
 display:flex;
 
+justify-content:space-between;
 
+margin-top:60px;
 
-justify-content:center;
-
-
-
-align-items:center;
-
-
-
-pointer-events:none;
+}
 
 
 
-z-index:0;
+.sign-box{
 
-
+width:45%;
 
 }
 
 
 
 
-.watermark img{
 
+/* =========================
 
-width:
-
-350px;
-
-
-
-opacity:
-
-0.03;
-
-
-
-object-fit:
-
-contain;
-
-
-
-}
-
-
-
-
-/* =====================================================
-PAGE BREAK
-===================================================== */
-
-.page-break{
-
-display:block;
-
-height:0;
-
-margin:0;
-
-border:0;
-
-page-break-before:always;
-
-break-before:page;
-
-page-break-after:auto;
-
-break-after:auto;
-
-}
-
-h1,
-
-h2,
-
-h3,
-
-h4,
-
-h5,
-
-h6,
-
-table,
-
-tr,
-
-td,
-
-th,
-
-footer,
-
-.signature-area{
-
-page-break-inside:avoid;
-
-break-inside:avoid;
-
-page-break-after:auto;
-
-break-after:auto;
-
-}
-
-
-/* =====================================================
 PRINT
-===================================================== */
+
+========================= */
+
 
 @media print{
 
-@page{
-
-size:A4;
-
-margin:5mm;
-
-}
-
 body{
 
-background:#fff;
-
-padding:0;
-
-margin:0;
+background:white;
 
 }
+
+
 
 .toolbar{
 
@@ -1382,39 +976,27 @@ display:none;
 
 }
 
+
+
 .paper{
 
-width:auto;
-
-min-height:auto;
+width:100%;
 
 margin:0;
 
-padding:5mm;
+min-height:auto;
+
+padding:18mm;
 
 box-shadow:none;
 
-overflow:visible;
-
 }
+
+
 
 .watermark img{
 
-opacity:.025;
-
-}
-
-#document-container{
-
-min-height:auto;
-
-}
-
-footer{
-
-page-break-inside:avoid;
-
-break-inside:avoid;
+opacity:0.03;
 
 }
 
