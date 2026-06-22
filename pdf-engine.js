@@ -4,7 +4,7 @@ VIDHWAAN
 
 Corporate Operating System
 
-VCOS 1.0
+VCOS 2.0
 
 FILE      : pdf-engine.js
 
@@ -12,72 +12,34 @@ STATUS    : FINAL
 
 TYPE      : PERMANENT
 
+ARCHITECTURE :
+
+HTML
+↓
+
+PRINT CSS
+↓
+
+window.print()
+
+↓
+
+Browser PDF Engine
+
 ===================================================== */
 
 "use strict";
 
 
 /* =====================================================
-PDF ENGINE CONFIG
+CONFIG
 ===================================================== */
 
-const PDF_ENGINE = {
+const PDF_ENGINE={
 
 orientation:"portrait",
 
-format:"a4",
-
-unit:"mm",
-
-margin:[
-
-0,
-
-0,
-
-0,
-
-0
-
-],
-
-filename:
-
-"VIDHWAAN.pdf",
-
-image:{
-
-type:"jpeg",
-
-quality:1
-
-},
-
-html2canvas:{
-
-scale:2,
-
-useCORS:true,
-
-scrollY:0,
-
-logging:false,
-
-letterRendering:true
-
-},
-
-jsPDF:{
-
-unit:"mm",
-
-format:"a4",
-
-orientation:"portrait",
-
-compress:true
-
-}
+filename:"VIDHWAAN.pdf"
 
 };
 
@@ -85,152 +47,49 @@ compress:true
 
 /* =====================================================
 DOWNLOAD PDF
+
+Uses browser native PDF engine
+
+No html2pdf
+
+No html2canvas
+
+No image conversion
+
 ===================================================== */
 
 function downloadPDF(
 
-filename=
-
-"VIDHWAAN.pdf"
+filename="VIDHWAAN.pdf"
 
 ){
 
-const paper=
+PDF_ENGINE.filename=
 
-document.getElementById(
-
-"paper"
-
-);
+filename;
 
 
-if(
+document.title=
 
-!paper
+filename
 
-){
+.replace(
 
-alert(
+".pdf",
 
-"Paper not found"
+""
 
 );
 
-return;
+
+window.print();
 
 }
-
-
-const options={
-
-margin:
-
-PDF_ENGINE.margin,
-
-filename:
-
-filename,
-
-image:
-
-PDF_ENGINE.image,
-
-html2canvas:
-
-PDF_ENGINE.html2canvas,
-
-jsPDF:
-
-PDF_ENGINE.jsPDF,
-
-pagebreak:{
-
-mode:[
-
-'css',
-
-'legacy',
-
-'avoid-all'
-
-],
-
-before:
-
-'.page-break',
-
-avoid:[
-
-'table',
-
-'tr',
-
-'td',
-
-'th',
-
-'footer',
-
-'.signature-area',
-
-'h1',
-
-'h2',
-
-'h3',
-
-'h4'
-
-]
-
-}
-
-};
-
-
-html2pdf()
-
-.set(
-
-options
-
-)
-
-.from(
-
-paper
-
-)
-
-.save()
-
-.catch(
-
-err=>{
-
-console.error(
-
-err
-
-);
-
-alert(
-
-"Unable to generate PDF"
-
-);
-
-}
-
-);
-
-}
-
 
 
 
 /* =====================================================
-PRINT
+PRINT DOCUMENT
 ===================================================== */
 
 function printDocument(){
@@ -238,7 +97,6 @@ function printDocument(){
 window.print();
 
 }
-
 
 
 
@@ -253,19 +111,28 @@ PDF_ENGINE.orientation=
 "portrait";
 
 
-PDF_ENGINE.jsPDF.orientation=
+document.body
 
-"portrait";
+.classList
+
+.remove(
+
+"landscape"
+
+);
 
 
-console.log(
+document.body
 
-"Portrait Mode"
+.classList
+
+.add(
+
+"portrait"
 
 );
 
 }
-
 
 
 
@@ -280,19 +147,28 @@ PDF_ENGINE.orientation=
 "landscape";
 
 
-PDF_ENGINE.jsPDF.orientation=
+document.body
 
-"landscape";
+.classList
+
+.remove(
+
+"portrait"
+
+);
 
 
-console.log(
+document.body
 
-"Landscape Mode"
+.classList
+
+.add(
+
+"landscape"
 
 );
 
 }
-
 
 
 
@@ -301,6 +177,7 @@ SHA256 HASH
 ===================================================== */
 
 function generateHash(){
+
 
 const paper=
 
@@ -314,6 +191,17 @@ document.getElementById(
 if(
 
 !paper
+
+)
+
+return "";
+
+
+if(
+
+typeof CryptoJS===
+
+"undefined"
 
 )
 
@@ -338,7 +226,7 @@ content
 .toString();
 
 
-const hashElement=
+const hashBox=
 
 document.getElementById(
 
@@ -349,11 +237,11 @@ document.getElementById(
 
 if(
 
-hashElement
+hashBox
 
 ){
 
-hashElement.innerText=
+hashBox.innerText=
 
 hash;
 
@@ -366,12 +254,12 @@ return hash;
 
 
 
-
 /* =====================================================
 QR CODE
 ===================================================== */
 
 function generateQR(){
+
 
 const qrBox=
 
@@ -388,11 +276,15 @@ if(
 
 ||
 
-typeof QRCode==="undefined"
+typeof QRCode===
+
+"undefined"
 
 ||
 
-typeof CONFIG==="undefined"
+typeof CONFIG===
+
+"undefined"
 
 )
 
@@ -434,12 +326,12 @@ QRCode.CorrectLevel.H
 
 
 
-
 /* =====================================================
 SHOW SIGNATURE
 ===================================================== */
 
 function showSignatureArea(){
+
 
 const area=
 
@@ -472,12 +364,12 @@ area
 
 
 
-
 /* =====================================================
 HIDE SIGNATURE
 ===================================================== */
 
 function hideSignatureArea(){
+
 
 const area=
 
@@ -510,12 +402,17 @@ area
 
 
 
-
 /* =====================================================
 PAGE NUMBERS
+
+Browser controls final pages.
+
+This is preview only.
+
 ===================================================== */
 
 function updatePages(){
+
 
 const pageNo=
 
@@ -541,7 +438,9 @@ pageNo
 
 )
 
-pageNo.innerText=1;
+pageNo.innerText=
+
+1;
 
 
 if(
@@ -550,10 +449,11 @@ totalPages
 
 )
 
-totalPages.innerText=1;
+totalPages.innerText=
+
+1;
 
 }
-
 
 
 
@@ -570,6 +470,7 @@ title,
 version
 
 ){
+
 
 const safeTitle=
 
@@ -614,7 +515,6 @@ version
 
 
 
-
 /* =====================================================
 INITIALIZE
 ===================================================== */
@@ -627,23 +527,33 @@ window
 
 ()=>{
 
+
 updatePages();
+
 
 generateHash();
 
+
 generateQR();
+
 
 console.log(
 
 `
 
-=====================================
+====================================
 
 VIDHWAAN
 
-PDF ENGINE READY
+PRINT ENGINE READY
 
-=====================================
+NO HTML2PDF
+
+NO HTML2CANVAS
+
+TRUE A4 ENGINE
+
+====================================
 
 `
 
