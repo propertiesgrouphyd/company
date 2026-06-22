@@ -235,7 +235,7 @@ background:white;
 
 position:relative;
 
-overflow:visible;
+overflow:hidden;
 
 box-shadow:
 
@@ -793,54 +793,42 @@ margin-bottom:
 
 FOOTER
 
-PERMANENT CORPORATE FOOTER
-
 ========================= */
 
 
 footer{
 
-width:100%;
+margin-top:
 
-margin-top:40px;
+70px;
 
-padding-top:14px;
+padding-top:
 
-border-top:1px solid var(--border);
+20px;
 
-display:table;
+border-top:
 
-table-layout:fixed;
+1px solid
 
-font-size:10px;
+var(--border);
 
-line-height:1.8;
+display:flex;
 
-color:#666;
+justify-content:
 
-page-break-inside:avoid;
+space-between;
 
-break-inside:avoid;
+font-size:
 
-}
+11px;
 
+line-height:
 
+1.9;
 
-.footer-left,
+color:
 
-.footer-center,
-
-.footer-right{
-
-display:table-cell;
-
-vertical-align:top;
-
-width:33.33%;
-
-page-break-inside:avoid;
-
-break-inside:avoid;
+#666;
 
 }
 
@@ -848,9 +836,9 @@ break-inside:avoid;
 
 .footer-left{
 
-text-align:left;
+max-width:
 
-padding-right:12px;
+40%;
 
 }
 
@@ -860,8 +848,6 @@ padding-right:12px;
 
 text-align:center;
 
-padding:0 12px;
-
 }
 
 
@@ -869,8 +855,6 @@ padding:0 12px;
 .footer-right{
 
 text-align:right;
-
-padding-left:12px;
 
 font-weight:600;
 
@@ -894,13 +878,6 @@ margin-bottom:6px;
 
 
 
-footer *{
-
-page-break-inside:avoid;
-
-break-inside:avoid;
-
-}
 
 
 /* =========================
@@ -1003,19 +980,15 @@ display:none;
 
 .paper{
 
-width:auto;
-
-max-width:none;
+width:100%;
 
 margin:0;
 
-padding:12mm;
-
 min-height:auto;
 
-box-shadow:none;
+padding:18mm;
 
-overflow:visible;
+box-shadow:none;
 
 }
 
@@ -1024,48 +997,6 @@ overflow:visible;
 .watermark img{
 
 opacity:0.03;
-
-}
-
-@page{
-
-size:A4;
-
-margin:12mm;
-
-}
-
-
-
-body{
-
-margin:0;
-
-padding:0;
-
-}
-
-
-
-h1,
-
-h2,
-
-h3,
-
-table,
-
-tr,
-
-td,
-
-th,
-
-footer{
-
-page-break-inside:avoid;
-
-break-inside:avoid;
 
 }
 
