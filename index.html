@@ -18,7 +18,9 @@ content="#111111"
 
 <title>
 
-VIDHWAAN Corporate Document System
+VIDHWAAN
+
+Corporate Operating System
 
 </title>
 
@@ -51,6 +53,10 @@ rel="stylesheet"
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 
 
 <link
@@ -67,15 +73,14 @@ href="main.css"
 
 
 
-
-
-<!-- SCREEN TOOLBAR -->
+<!-- TOOLBAR -->
 
 <div class="toolbar">
 
 
 
 <div class="toolbar-left">
+
 
 
 <button id="newBtn">
@@ -93,16 +98,13 @@ New
 
 <option value="">
 
-Select Template
+Templates
 
 </option>
 
 
 
-
-
 <optgroup label="Board">
-
 
 
 <option value="board-meeting-notice">
@@ -110,37 +112,6 @@ Select Template
 Board Meeting Notice
 
 </option>
-
-
-
-
-<option value="minutes-of-meeting">
-
-Minutes of Meeting
-
-</option>
-
-
-
-
-
-<option value="board-resolution">
-
-Board Resolution
-
-</option>
-
-
-
-
-
-<option value="attendance-sheet">
-
-Attendance Sheet
-
-</option>
-
-
 
 
 
@@ -152,43 +123,27 @@ Consent for Shorter Notice
 
 
 
-</optgroup>
+<option value="attendance-sheet">
 
-
-
-
-
-
-<optgroup label="Directors">
-
-
-
-<option value="mbp1">
-
-MBP-1
+Attendance Sheet
 
 </option>
 
 
 
+<option value="minutes-of-meeting">
 
-
-<option value="dir8">
-
-DIR-8
+Minutes of Meeting
 
 </option>
 
 
 
+<option value="board-resolution">
 
-
-<option value="register-directors">
-
-Register of Directors
+Board Resolution
 
 </option>
-
 
 
 </optgroup>
@@ -197,51 +152,31 @@ Register of Directors
 
 
 
+<optgroup label="Auditor">
 
 
-<optgroup label="Shares">
+<option value="auditor-consent">
 
-
-
-<option value="register-members">
-
-Register of Members
+Auditor Consent
 
 </option>
 
 
 
+<option value="section141">
 
-
-<option value="share-certificate">
-
-Share Certificate
+Section 141 Certificate
 
 </option>
-
 
 
 </optgroup>
-
-
-
 
 
 
 
 
 <optgroup label="ROC">
-
-
-
-<option value="auditor-appointment">
-
-Auditor Appointment
-
-</option>
-
-
-
 
 
 <option value="inc20a">
@@ -252,35 +187,19 @@ INC-20A
 
 
 
-</optgroup>
+<option value="mgt7">
 
-
-
-
-
-
-
-
-<optgroup label="Tax">
-
-
-
-<option value="gst">
-
-GST
+MGT-7
 
 </option>
 
 
 
+<option value="aoc4">
 
-
-<option value="professional-tax">
-
-Professional Tax
+AOC-4
 
 </option>
-
 
 
 </optgroup>
@@ -289,11 +208,7 @@ Professional Tax
 
 
 
-
-
-
-<optgroup label="Corporate">
-
+<optgroup label="Business">
 
 
 <option value="invoice">
@@ -304,15 +219,11 @@ Invoice
 
 
 
+<option value="quotation">
 
-
-<option value="offer-letter">
-
-Offer Letter
+Quotation
 
 </option>
-
-
 
 
 
@@ -323,18 +234,8 @@ Agreement
 </option>
 
 
-
-
-
-<option value="company-profile">
-
-Company Profile
-
-</option>
-
-
-
 </optgroup>
+
 
 
 
@@ -343,7 +244,17 @@ Company Profile
 
 
 
+
+<button id="saveBtn">
+
+Save
+
+</button>
+
+
+
 </div>
+
 
 
 
@@ -363,7 +274,6 @@ Print
 
 
 
-
 <button id="pdfBtn">
 
 Download PDF
@@ -372,7 +282,22 @@ Download PDF
 
 
 
-</div>
+
+<button id="dscBtn">
+
+DSC Sign
+
+</button>
+
+
+
+
+
+<button id="archiveBtn">
+
+Archive
+
+</button>
 
 
 
@@ -380,6 +305,9 @@ Download PDF
 </div>
 
 
+
+
+</div>
 
 
 
@@ -388,8 +316,9 @@ Download PDF
 
 <!-- PAPER -->
 
+<div
 
-<div class="paper"
+class="paper"
 
 id="paper"
 
@@ -398,15 +327,15 @@ id="paper"
 
 
 
-<!-- WATERMARK -->
 
+<!-- WATERMARK -->
 
 <div class="watermark">
 
 
 <img
 
-src="logo.png"
+src="assets/logo.png"
 
 alt="VIDHWAAN"
 
@@ -414,7 +343,6 @@ alt="VIDHWAAN"
 
 
 </div>
-
 
 
 
@@ -424,8 +352,8 @@ alt="VIDHWAAN"
 
 <!-- LETTERHEAD -->
 
-
 <header class="letterhead">
+
 
 
 
@@ -435,7 +363,7 @@ alt="VIDHWAAN"
 
 <img
 
-src="logo.png"
+src="assets/logo.png"
 
 class="logo"
 
@@ -445,6 +373,7 @@ alt="VIDHWAAN"
 
 
 </div>
+
 
 
 
@@ -474,18 +403,8 @@ GIDIGI TECHNOLOGIES PRIVATE LIMITED
 
 
 
-
-
-
-<div class="tagline">
-
-BUILDING THE FUTURE WITH TECHNOLOGY
-
 </div>
 
-
-
-</div>
 
 
 
@@ -500,17 +419,21 @@ BUILDING THE FUTURE WITH TECHNOLOGY
 
 <div class="meta-row">
 
-<div>
+
+<span>
 
 CIN
 
-</div>
+</span>
 
-<div>
+
+
+<span>
 
 U62099AP2026PTC126392
 
-</div>
+</span>
+
 
 </div>
 
@@ -521,17 +444,21 @@ U62099AP2026PTC126392
 
 <div class="meta-row">
 
-<div>
+
+<span>
 
 PAN
 
-</div>
+</span>
 
-<div>
+
+
+<span>
 
 AANCG1335J
 
-</div>
+</span>
+
 
 </div>
 
@@ -542,36 +469,60 @@ AANCG1335J
 
 <div class="meta-row">
 
-<div>
+
+<span>
 
 GST
 
-</div>
-
-<div>
-
-Applied
-
-</div>
-
-</div>
+</span>
 
 
 
+<span>
 
+37XXXXXXXXX1ZX
 
-
-
-
+</span>
 
 
 </div>
+
+
+
+
+
+
+<div class="meta-row">
+
+
+<span>
+
+WEB
+
+</span>
+
+
+
+<span>
+
+vidhwaan.com
+
+</span>
+
+
+</div>
+
+
+
+
+</div>
+
+
 
 
 
 
 </header>
-
 
 
 
@@ -587,12 +538,9 @@ Applied
 
 
 
+<!-- DOCUMENT AREA -->
 
-<!-- DOCUMENT -->
-
-
-
-<div
+<main
 
 id="document-container"
 
@@ -601,40 +549,35 @@ id="document-container"
 
 
 
-
-<div class="welcome">
-
-
-
-<h1>
-
-VIDHWAAN
-
-</h1>
-
-
-
-
-
-<p>
-
-Corporate Document System
-
-</p>
+</main>
 
 
 
 
 
 
-<p>
-
-Select a template from the top menu.
-
-</p>
 
 
 
+<!-- DSC -->
+
+<section
+
+class="signature-area"
+
+id="signatureArea"
+
+>
+
+
+
+<div>
+
+Digitally Signed By
+
+:
+
+_________________
 
 </div>
 
@@ -642,16 +585,60 @@ Select a template from the top menu.
 
 
 
+<div>
+
+Signed On
+
+:
+
+_________________
+
 </div>
 
 
 
 
 
+<div>
+
+Certificate No
+
+:
+
+_________________
+
+</div>
 
 
 
 
+
+<div>
+
+SHA256
+
+:
+
+<span id="hash">
+
+-
+
+</span>
+
+</div>
+
+
+
+
+
+<div id="qrcode">
+
+</div>
+
+
+
+
+</section>
 
 
 
@@ -663,8 +650,6 @@ Select a template from the top menu.
 
 <!-- FOOTER -->
 
-
-
 <footer>
 
 
@@ -674,60 +659,27 @@ Select a template from the top menu.
 <div class="footer-left">
 
 
-
-<div class="footer-heading">
-
-Registered Office
-
-</div>
-
-
-
-<div>
-
 House of Gidigi Ankaiah
 
-</div>
-
-
-
-<div>
+<br>
 
 Utukur Gram Panchayat
 
-</div>
-
-
-
-<div>
+<br>
 
 Utukur
 
-</div>
-
-
-
-<div>
+<br>
 
 Sydapuram
 
-</div>
-
-
-
-<div>
+<br>
 
 Nellore - 524407
 
-</div>
-
-
-
-<div>
+<br>
 
 Andhra Pradesh
-
-</div>
 
 
 
@@ -743,20 +695,11 @@ Andhra Pradesh
 <div class="footer-center">
 
 
-
-<div>
-
 VIDHWAAN
 
-</div>
+<br>
 
-
-
-<div>
-
-www.vidhwaan.com
-
-</div>
+vidhwaan.com
 
 
 
@@ -771,6 +714,20 @@ www.vidhwaan.com
 
 <div class="footer-right">
 
+
+Version
+
+<span id="version">
+
+1.0
+
+</span>
+
+
+<br>
+
+
+
 Page
 
 <span id="pageNo">
@@ -779,7 +736,11 @@ Page
 
 </span>
 
-/
+
+
+of
+
+
 
 <span id="totalPages">
 
@@ -787,7 +748,10 @@ Page
 
 </span>
 
+
+
 </div>
+
 
 
 
@@ -805,6 +769,11 @@ Page
 
 
 
+
+
+<script src="config.js"></script>
+
+<script src="pdf-engine.js"></script>
 
 <script src="app.js"></script>
 
