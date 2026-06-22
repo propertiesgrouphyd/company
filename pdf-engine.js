@@ -10,13 +10,16 @@ FILE      : pdf-engine.js
 
 STATUS    : FINAL
 
-DO NOT MODIFY
+TYPE      : PERMANENT
 
 ===================================================== */
 
 "use strict";
 
 
+/* =====================================================
+PDF ENGINE CONFIG
+===================================================== */
 
 const PDF_ENGINE = {
 
@@ -36,7 +39,7 @@ margin:[
 
 0
 
-]
+],
 
 filename:
 
@@ -44,13 +47,9 @@ filename:
 
 image:{
 
-type:
+type:"jpeg",
 
-"jpeg",
-
-quality:
-
-1
+quality:1
 
 },
 
@@ -70,17 +69,11 @@ letterRendering:true
 
 jsPDF:{
 
-unit:
+unit:"mm",
 
-"mm",
+format:"a4",
 
-format:
-
-"a4",
-
-orientation:
-
-"portrait",
+orientation:"portrait",
 
 compress:true
 
@@ -90,11 +83,9 @@ compress:true
 
 
 
-
 /* =====================================================
 DOWNLOAD PDF
 ===================================================== */
-
 
 function downloadPDF(
 
@@ -238,92 +229,15 @@ alert(
 
 
 
-
-const options={
-
-margin:
-
-PDF_ENGINE.margin,
-
-filename:
-
-filename,
-
-image:
-
-PDF_ENGINE.image,
-
-html2canvas:
-
-PDF_ENGINE.html2canvas,
-
-jsPDF:
-
-PDF_ENGINE.jsPDF,
-
-pagebreak:{
-
-mode:[
-
-'css',
-
-'legacy',
-
-'avoid-all'
-
-],
-
-before:
-
-'.page-break',
-
-avoid:[
-
-'table',
-
-'tr',
-
-'td',
-
-'th',
-
-'footer',
-
-'.signature-area',
-
-'h1',
-
-'h2',
-
-'h3',
-
-'h4'
-
-]
-
-}
-
-};
-
-
-
-
-
 /* =====================================================
 PRINT
 ===================================================== */
 
-
 function printDocument(){
-
 
 window.print();
 
-
 }
-
-
-
 
 
 
@@ -332,21 +246,16 @@ window.print();
 PORTRAIT
 ===================================================== */
 
-
 function setPortrait(){
-
-
 
 PDF_ENGINE.orientation=
 
 "portrait";
 
 
-
 PDF_ENGINE.jsPDF.orientation=
 
 "portrait";
-
 
 
 console.log(
@@ -355,12 +264,7 @@ console.log(
 
 );
 
-
-
 }
-
-
-
 
 
 
@@ -369,21 +273,16 @@ console.log(
 LANDSCAPE
 ===================================================== */
 
-
 function setLandscape(){
-
-
 
 PDF_ENGINE.orientation=
 
 "landscape";
 
 
-
 PDF_ENGINE.jsPDF.orientation=
 
 "landscape";
-
 
 
 console.log(
@@ -392,13 +291,7 @@ console.log(
 
 );
 
-
-
 }
-
-
-
-
 
 
 
@@ -407,31 +300,32 @@ console.log(
 SHA256 HASH
 ===================================================== */
 
-
 function generateHash(){
 
+const paper=
+
+document.getElementById(
+
+"paper"
+
+);
+
+
+if(
+
+!paper
+
+)
+
+return "";
 
 
 const content=
 
-
-document
-
-.getElementById(
-
-"paper"
-
-)
-
-.innerText;
-
-
-
-
+paper.innerText;
 
 
 const hash=
-
 
 CryptoJS
 
@@ -444,24 +338,13 @@ content
 .toString();
 
 
-
-
-
-
 const hashElement=
 
-
-document
-
-.getElementById(
+document.getElementById(
 
 "hash"
 
 );
-
-
-
-
 
 
 if(
@@ -470,29 +353,16 @@ hashElement
 
 ){
 
-
-
 hashElement.innerText=
 
 hash;
 
-
-
 }
-
-
-
 
 
 return hash;
 
-
-
 }
-
-
-
-
 
 
 
@@ -501,43 +371,35 @@ return hash;
 QR CODE
 ===================================================== */
 
-
 function generateQR(){
-
-
 
 const qrBox=
 
-
-document
-
-.getElementById(
+document.getElementById(
 
 "qrcode"
 
 );
 
 
-
-
-
 if(
 
 !qrBox
+
+||
+
+typeof QRCode==="undefined"
+
+||
+
+typeof CONFIG==="undefined"
 
 )
 
 return;
 
 
-
-
-
 qrBox.innerHTML="";
-
-
-
-
 
 
 new QRCode(
@@ -546,80 +408,46 @@ qrBox,
 
 {
 
-
 text:
 
-
-CONFIG.WEBSITE
-
-+
+CONFIG.WEBSITE+
 
 "/verify",
-
-
-
 
 width:
 
 90,
 
-
-
-
 height:
 
 90,
-
-
-
 
 correctLevel:
 
 QRCode.CorrectLevel.H
 
-
-
-
 }
 
 );
 
-
-
-
 }
-
-
-
-
-
-
 
 
 
 
 /* =====================================================
-SHOW DSC AREA
+SHOW SIGNATURE
 ===================================================== */
-
 
 function showSignatureArea(){
 
-
-
 const area=
 
-
-document
-
-.getElementById(
+document.getElementById(
 
 "signatureArea"
 
 );
-
-
-
 
 
 if(
@@ -627,8 +455,6 @@ if(
 area
 
 ){
-
-
 
 area
 
@@ -640,44 +466,26 @@ area
 
 );
 
-
-
 }
 
-
-
 }
-
-
-
-
-
 
 
 
 
 /* =====================================================
-HIDE DSC AREA
+HIDE SIGNATURE
 ===================================================== */
-
 
 function hideSignatureArea(){
 
-
-
 const area=
 
-
-document
-
-.getElementById(
+document.getElementById(
 
 "signatureArea"
 
 );
-
-
-
 
 
 if(
@@ -685,8 +493,6 @@ if(
 area
 
 ){
-
-
 
 area
 
@@ -698,18 +504,9 @@ area
 
 );
 
-
-
 }
 
-
-
 }
-
-
-
-
-
 
 
 
@@ -718,40 +515,24 @@ area
 PAGE NUMBERS
 ===================================================== */
 
-
 function updatePages(){
-
-
 
 const pageNo=
 
-
-document
-
-.getElementById(
+document.getElementById(
 
 "pageNo"
 
 );
 
 
-
-
-
 const totalPages=
 
-
-document
-
-.getElementById(
+document.getElementById(
 
 "totalPages"
 
 );
-
-
-
-
 
 
 if(
@@ -763,10 +544,6 @@ pageNo
 pageNo.innerText=1;
 
 
-
-
-
-
 if(
 
 totalPages
@@ -775,15 +552,7 @@ totalPages
 
 totalPages.innerText=1;
 
-
-
 }
-
-
-
-
-
-
 
 
 
@@ -792,9 +561,7 @@ totalPages.innerText=1;
 FILE NAME
 ===================================================== */
 
-
 function buildFileName(
-
 
 docNo,
 
@@ -804,10 +571,7 @@ version
 
 ){
 
-
-
 const safeTitle=
-
 
 title
 
@@ -822,12 +586,7 @@ title
 .toUpperCase();
 
 
-
-
-
-
 return
-
 
 docNo
 
@@ -851,15 +610,7 @@ version
 
 ".pdf";
 
-
-
 }
-
-
-
-
-
-
 
 
 
@@ -867,7 +618,6 @@ version
 /* =====================================================
 INITIALIZE
 ===================================================== */
-
 
 window
 
@@ -877,19 +627,11 @@ window
 
 ()=>{
 
-
-
 updatePages();
-
-
 
 generateHash();
 
-
-
 generateQR();
-
-
 
 console.log(
 
@@ -907,6 +649,6 @@ PDF ENGINE READY
 
 );
 
+}
 
-
-});
+);
