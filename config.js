@@ -60,7 +60,7 @@ PAN:
 
 GST:
 
-"37XXXXXXXXX1ZX",
+"Applied For",
 
 
 
